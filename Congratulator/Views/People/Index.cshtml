@@ -1,0 +1,33 @@
+﻿@model List<People>
+
+<h2>All Birthdays</h2>
+
+<table>
+    <tr>
+        <th width="276px">Photo</th>
+        <th width="172px">Name</th>
+        <th width="300px">Date of Birth</th>
+        <th width="288px"></th>
+    </tr>
+    @foreach (var birthday in Model)
+    {
+        <tr>
+            <td>
+                @if (birthday.Photo != null && birthday.Photo.Length > 0)
+                {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(birthday.Photo)" alt="@birthday.Photo" width="100" height="100" />
+                }
+                else
+                {
+                    <span>No photo</span>
+                }
+            </td>
+            <td>@birthday.Name</td>
+            <td>@birthday.DateOfBirth.ToShortDateString()</td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = birthday.Id })">Edit</a>| 
+                <a href="@Url.Action("Delete", new { id = birthday.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

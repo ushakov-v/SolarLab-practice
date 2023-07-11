@@ -1,0 +1,23 @@
+﻿@model People
+
+<h3>Delete Birthday</h3>
+
+<p>Are you sure you want to delete this birthday?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label>Photo:</label>
+        <img src="@Model.Photo" alt="Current Photo" />
+        <input type="file" class="form-control-file" asp-for="Photo" readonly />
+    </div>
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" asp-for="Name" readonly />
+    </div>
+    <div class="form-group">
+        <label>Date:</label>
+        <input type="text" class="form-control" asp-for="DateOfBirth" readonly />
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

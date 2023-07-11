@@ -1,0 +1,23 @@
+﻿@model People
+
+
+<h3>Add Birthday</h3>
+
+<form asp-action="Add" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Photo">Photo</label>
+        <input type="file" id="Photo" name="Photo" class="form-control-file" accept=".jpg,.jpeg,.png" />
+    </div>
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="DateOfBirth">Date of Birth</label>
+        <input type="date" id="DateOfBirth" name="DateOfBirth" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<p>&nbsp;</p>
+<p><a href="javascript:history.back()">Back</a></p>
