@@ -9,7 +9,7 @@
         <input type="file" id="Photo" name="Photo" class="form-control-file" accept=".jpg,.jpeg,.png" />
          @if (Model.Photo != null)
         {
-            <img src="data:image;base64,@Convert.ToBase64String(Model.Photo)" alt="@Model.Photo" style="margin: 20px 0px; width: 100px; height: 100px; " required  />
+            <img src="data:image;base64,@Convert.ToBase64String(Model.Photo)" value="@Model.Photo" style="margin: 20px 0px; width: 100px; height: 100px; " required  />
         }
     </div>
     <div class="form-group">

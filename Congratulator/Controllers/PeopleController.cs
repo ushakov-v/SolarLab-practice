@@ -98,13 +98,6 @@ namespace Congratulator.Controllers
         public IActionResult Edit(People updatedEntry, IFormFile photo)
         {
             var birthday = _context.Birthdays.Find(updatedEntry.Id);
-
-            if (birthday == null)
-            {
-                return NotFound();
-            }
-            birthday.Name = updatedEntry.Name;
-            birthday.DateOfBirth = updatedEntry.DateOfBirth;
             if (photo != null && photo.Length > 0)
             {
                 using (var memoryStream = new MemoryStream())
@@ -113,6 +106,12 @@ namespace Congratulator.Controllers
                     birthday.Photo = memoryStream.ToArray();
                 }
             }
+            if (birthday == null)
+            {
+                return NotFound();
+            }
+            birthday.Name = updatedEntry.Name;
+            birthday.DateOfBirth = updatedEntry.DateOfBirth;
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
